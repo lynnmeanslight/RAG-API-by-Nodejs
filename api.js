@@ -16,7 +16,8 @@ const upload = multer({
       cb(null, "data"); // Specify the directory to store uploaded files
     },
     filename: (req, file, cb) => {
-      const fileExtension = file.originalname.split(".")[1];
+      const splittedFileName = file.originalname.split(".");
+      const fileExtension = splittedFileName[splittedFileName.length-1];
       const fileName = "sample." + fileExtension;
       cb(null, fileName);
     },
